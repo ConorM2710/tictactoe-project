@@ -24,5 +24,19 @@ class TicTacToe:
         print("--|--|--")
         print(self.board[0] + " | " + self.board[1] + " | " + self.board[2])
 
-
-    
+    def user_input(self, move):
+        """
+        Prompts the user to enter an input and updates the board
+        """
+        while True:
+            try:
+                space = int(input(f"Enter a number between 1 and 9 to place your '{move}' mark"))
+                if space < 1 or space > 9:
+                    raise ValueError("Invalid input. Please enter a number between 1 and 9.")
+                space -= 1
+                if self.board[space] != "?":
+                    raise ValueError("That space is already taken. Please choose another space")
+                self.board[space] = move
+                break
+            except ValueError as e:
+                print(e) 
