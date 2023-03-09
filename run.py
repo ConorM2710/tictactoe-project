@@ -69,3 +69,26 @@ class TicTacToe:
         # Draw
         if "?" not in self.board:
             return "draw"
+
+    def play_game(self):
+        """
+        Runs the tic tac toe game
+        """
+        print("Welcome to Tic Tac Toe!\n")
+        self.show_board()
+        while True:
+            self.user_input("X")
+            self.show_board()
+            winner = self.check_winner()
+            if winner:
+                break
+            self.user_input("O")
+            self.show_board()
+            winner = self.check_winner()
+            if winner:
+                break
+
+        if winner == "draw":
+            print("Oops there is no more spaces left, its a draw!")
+        else:
+            print(f"The player {winner} has won the game!\n")
