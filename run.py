@@ -43,7 +43,7 @@ class TicTacToe:
 
     def check_winner(self):
         """
-        Checls the three functions to determine the winner
+        Checks the three functions to determine the winner
         """
 
         # Checks Columns
@@ -65,3 +65,7 @@ class TicTacToe:
         elif self.board[2] == self.board[4] == self.board[
                     6] and self.board[2] != "?":
             return self.board[2]
+
+        # Draw
+        if "?" not in self.board:
+            return "draw"
