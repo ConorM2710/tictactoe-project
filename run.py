@@ -40,3 +40,28 @@ class TicTacToe:
                 break
             except ValueError as e:
                 print(e) 
+
+    def check_winner(self):
+        """
+        Checls the three functions to determine the winner
+        """
+
+        # Checks Columns
+        for i in range(3):
+            if self.board[i] == self.board[i+3] == self.board[
+                    i+6] and self.board[i] != "?":
+                return self.board
+
+        # Checks Rows
+        for i in range(0, 9, 3):
+            if self.board[i] == self.board[i+1] == self.board[
+                    i+2] and self.board[i] != "?":
+                return self.board
+
+        # Checks Diagonals
+        if self.board[0] == self.board[4] == self.board[
+                    8] and self.board[0] != "?":
+            return self.board
+        elif self.board[2] == self.board[4] == self.board[
+                    6] and self.board[2] != "?":
+            return self.board[2]
